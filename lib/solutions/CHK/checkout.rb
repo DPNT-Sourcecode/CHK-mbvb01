@@ -7,6 +7,7 @@ def initialize
     B: 30,
     C: 20,
     D: 15,
+    E: 40,
     nil => 0
   }
 end
