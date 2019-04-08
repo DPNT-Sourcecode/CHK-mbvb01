@@ -34,7 +34,7 @@ end
         y = x/5
         @total -= (y*10)
       end
-      x = y - (@sku_total['A'] % 3)
+      x = @sku_total['A'] - (@sku_total['A'] % 3)
       y = x/3
       @total -= (y*20)
     end
@@ -53,4 +53,5 @@ end
   end
 
 end
+
 
