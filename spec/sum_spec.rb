@@ -11,6 +11,6 @@ describe Sum do
   end
 
   it 'raises an error if either parameter is negative' do
-    expect(@sum.sum(-1,1)).to raise_error
+    expect(@sum.sum(-1,-1)).to raise_error('Parameter is negative')
   end
 end
