@@ -36,8 +36,10 @@ end
         @total -= (y*50)
         @aremainder = y
       end
+      p @aremainder
       x = @aremainder - (@aremainder % 3)
       y = x/3
+      p @aremainder
       @total -= (y*20)
     end
     if @sku_total['B'] >= 2
@@ -55,3 +57,4 @@ end
   end
 
 end
+
