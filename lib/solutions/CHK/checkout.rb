@@ -29,12 +29,14 @@ end
       @total += @prices[sku.to_sym]
     end
     if @sku_total['A'] >= 3
+      @aremainder = @sku_total['A']
       if @sku_total['A'] >= 5
         x = @sku_total['A'] - (@sku_total['A'] % 5)
         y = x/5
-        @total -= (y*10)
+        @total -= (y*50)
+        @aremainder = y
       end
-      x = @sku_total['A'] - (@sku_total['A'] % 3)
+      x = @aremainder - (@aremainder % 3)
       y = x/3
       @total -= (y*20)
     end
@@ -53,3 +55,4 @@ end
   end
 
 end
+
