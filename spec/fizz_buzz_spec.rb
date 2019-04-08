@@ -26,8 +26,14 @@ describe 'buzz' do
   end
 end
 
-it 'returns fizz buzz if a number is divisible by 3 and 5' do
-  expect(@fizzBuzz.fizz_buzz(15)).to eq 'fizz buzz'
+describe 'fizz buzz' do
+  it 'returns fizz buzz if a number is divisible by 3 and 5' do
+    expect(@fizzBuzz.fizz_buzz(15)).to eq 'fizz buzz'
+  end
+
+  it 'returns fizz buzz if a number contains a 3 and a 5' do
+    expect(@fizzBuzz.fizz_buzz(351)).to eq 'fizz buzz'
+  end
 end
 
 it 'returns the provided number as a string if not divisible by 3/5/15' do
@@ -40,3 +46,4 @@ it 'raises an error if the provided number is outside the range 1-9999' do
 end
 
 end
+
