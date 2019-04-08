@@ -63,5 +63,3 @@ class FizzBuzz
     return true if (number % 5 == 0) && number.to_s.split('').include?('5')
   end
 end
-
-
