@@ -32,9 +32,9 @@ class FizzBuzz
   def deluxe?(number)
     if number > 10 && number.to_s.split('').uniq.length == 1
       if number % 2 == 0
-        @response + 'deluxe'
+        @response.concat('deluxe')
       else 
-        @response + 'fake deluxe'
+        @response.concat('fake deluxe')
       end
       return true
     else false
@@ -55,6 +55,7 @@ class FizzBuzz
     return true if buzz?(number) && deluxe?(number)
   end
 end
+
 
 
 
