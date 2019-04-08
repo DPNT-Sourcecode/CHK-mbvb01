@@ -8,7 +8,7 @@ end
 
 describe 'fizz' do
   it 'returns fizz if a number is divisible by 3' do
-    expect(@fizzBuzz.fizz_buzz(3)).to eq 'fizz'
+    expect(@fizzBuzz.fizz_buzz(9)).to eq 'fizz'
   end
 
   it 'returns fizz if a number has a 3 in it' do
@@ -18,7 +18,7 @@ end
 
 describe 'buzz' do
   it 'returns buzz if a number is divisible by 5' do
-    expect(@fizzBuzz.fizz_buzz(5)).to eq 'buzz'
+    expect(@fizzBuzz.fizz_buzz(10)).to eq 'buzz'
   end
 
   it 'returns buzz if a number has a 5 in it' do
@@ -28,7 +28,7 @@ end
 
 describe 'fizz buzz' do
   it 'returns fizz buzz if a number is divisible by 3 and 5' do
-    expect(@fizzBuzz.fizz_buzz(15)).to eq 'fizz buzz'
+    expect(@fizzBuzz.fizz_buzz(90)).to eq 'fizz buzz'
   end
 
   it 'returns fizz buzz if a number contains a 3 and a 5' do
@@ -74,4 +74,5 @@ it 'raises an error if the provided number is outside the range 1-9999' do
 end
 
 end
+
 

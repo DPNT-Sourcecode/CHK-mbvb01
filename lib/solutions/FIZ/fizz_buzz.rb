@@ -37,7 +37,7 @@ class FizzBuzz
   end
 
   def deluxe(number)
-    if number > 10 && number.to_s.split('').uniq.length == 1
+    if deluxe_condition1?(number) || deluxe_condition2?(number)
       if number % 2 == 0
         if @response != ''
           @response << ' deluxe'
@@ -53,5 +53,15 @@ class FizzBuzz
       end
     end
   end
+
+
+  def deluxe_condition1?(number)
+    return true if (number % 3 == 0) && number.to_s.split('').include?('3')
+  end
+
+  def deluxe_condition2?(number)
+    return true if (number % 5 == 0) && number.to_s.split('').include?('5')
+  end
 end
+
 
