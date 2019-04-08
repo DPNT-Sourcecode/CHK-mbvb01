@@ -47,20 +47,20 @@ describe 'deluxe' do
 end
 
 describe 'fizz buzz deluxe' do
-  it 'returns fizz buzz deluxe if a number if in all 3 groups' do
-    expect(@fizzBuzz.fizz_buzz(555)).to eq 'fizz buzz deluxe'
+  it 'returns fizz buzz fake deluxe if a number if in all 3 groups and odd' do
+    expect(@fizzBuzz.fizz_buzz(555)).to eq 'fizz buzz fake deluxe'
   end
 end
 
 describe 'fizz deluxe' do
-  it 'returns fizz deluxe if a number is fizz and deluxe' do
-    expect(@fizzBuzz.fizz_buzz(33)).to eq 'fizz deluxe'
+  it 'returns fizz fake deluxe if a number is fizz and deluxe and odd' do
+    expect(@fizzBuzz.fizz_buzz(33)).to eq 'fizz fake deluxe'
   end
 end
 
 describe 'buzz deluxe' do
-  it 'returns buzz deluxe if a number is buzz and deluxe' do
-    expect(@fizzBuzz.fizz_buzz(55)).to eq 'buzz deluxe'
+  it 'returns buzz fake deluxe if a number is buzz and deluxe and odd' do
+    expect(@fizzBuzz.fizz_buzz(55)).to eq 'buzz fake deluxe'
   end
 end
 
