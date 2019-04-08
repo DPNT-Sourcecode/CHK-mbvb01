@@ -34,15 +34,16 @@ class FizzBuzz
     return false
   end
 
-  def test()
+  def test
     x = 1
-    while x > 10000 do
-      if fizz_buzz_deluxe?(number)
+    until x > 10000 do
+      if fizz_buzz_deluxe?(x)
         puts x
       end
       x += 1
     end
   end
 end
+
 
 

@@ -42,6 +42,12 @@ describe 'deluxe' do
   end
 end
 
+describe 'fizz buzz deluxe' do
+  it 'returns fizz buzz deluxe if a number if in all 3 groups' do
+    expect(@fizzBuzz.fizz_buzz(555)).to eq 'fizz buzz deluxe'
+  end
+end
+
 it 'returns the provided number as a string if not divisible by 3/5/15' do
   expect(@fizzBuzz.fizz_buzz(1)).to eq '1'
 end
