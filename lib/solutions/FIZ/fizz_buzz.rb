@@ -23,8 +23,12 @@ class FizzBuzz
   end
 
   def buzz?(number)
-     @response + 'buzz' return true if (number % 5 == 0) || number.to_s.split('').include?('5')
+    if (number % 5 == 0) || number.to_s.split('').include?('5')
+      @response << 'buzz'
+      return true
+    else 
     return false
+    end
   end
 
   def fizz_buzz?(number)
@@ -58,6 +62,7 @@ class FizzBuzz
     return true if buzz?(number) && deluxe?(number)
   end
 end
+
 
 
 
