@@ -6,6 +6,7 @@ class FizzBuzz
     return 'fizz buzz deluxe' if fizz_buzz_deluxe?(number)
     return 'fizz buzz' if fizz_buzz?(number)
     return 'fizz deluxe' if fizz_deluxe?(number)
+    return 'buzz deluxe' if buzz_deluxe?(number)
     return 'fizz' if fizz?(number)
     return 'buzz' if buzz?(number)
     return 'deluxe' if deluxe?(number)
@@ -38,8 +39,14 @@ class FizzBuzz
 
   def fizz_deluxe?(number)
     return true if fizz?(number) && deluxe?(number)
+    return false
+  end
+
+  def buzz_deluxe?(number)
+    return true if buzz?(number) && deluxe?(number)
   end
 end
+
 
 
 
