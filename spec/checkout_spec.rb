@@ -26,8 +26,8 @@ describe Checkout do
     expect(@checkout.checkout('AAAA')).to eq (180)
   end
 
-  it 'returns 260 when passed AAAAAA' do
-    expect(@checkout.checkout('AAAAAA')).to eq (260)
+  it 'returns 250 when passed AAAAAA' do
+    expect(@checkout.checkout('AAAAAA')).to eq (250)
   end
 
   it 'returns 45 when pass BB' do
@@ -52,5 +52,13 @@ describe Checkout do
 
   it 'returns 110 when passed EEBB' do
     expect(@checkout.checkout('EEBB')).to eq (65)
+  end
+
+  it 'returns 200 when passed AAAAA' do
+    expect(@checkout.checkout('AAAAA')).to eq (200)
+  end
+
+  it 'returns 300 when passed AAAAAAA' do
+    expect(@checkout.checkout('AAAAA')).to eq (300)
   end
 end
