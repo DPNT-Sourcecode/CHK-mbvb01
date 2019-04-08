@@ -39,6 +39,6 @@ describe Checkout do
   end
 
   it 'returns 45 when pass BB' do
-    expect(@checkout.checkout('BBBB')).to eq (70)
+    expect(@checkout.checkout('BBBB')).to eq (90)
   end
 end
