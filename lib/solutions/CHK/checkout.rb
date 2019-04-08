@@ -10,6 +10,12 @@ def initialize
     E: 40,
     nil => 0
   }
+
+  @deals = {
+    A: {quantity: 3, discount: 20},
+    B: {quantity: 2, discount: 15},
+    E: {quantity: 2, discount: 15}
+  }
 end
   def checkout(skus)
     skus_array = skus.split('')
@@ -36,3 +42,4 @@ end
   end
 
 end
+
