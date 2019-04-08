@@ -6,11 +6,11 @@ describe Hello do
   end
 
   it 'returns Hello World' do
-    expect(@hello.hello('World')).to eq 'Hello, World'
+    expect(@hello.hello('World')).to eq 'Hello, World!'
   end
 
   it 'returns a hello message containing the supplied name' do
-    expect(@hello.hello('James')).to eq 'Hello, James'
+    expect(@hello.hello('James')).to eq 'Hello, World!'
   end
 
 end
