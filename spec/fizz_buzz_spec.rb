@@ -52,5 +52,3 @@ it 'raises an error if the provided number is outside the range 1-9999' do
 end
 
 end
-
-
