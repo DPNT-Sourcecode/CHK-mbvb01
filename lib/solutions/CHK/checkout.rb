@@ -14,12 +14,12 @@ end
     skus_array = skus.upcase.split('')
     @total = 0
     skus_array.each do |sku|
+      if !@prices.has_key? sku.to_sym
+        return @total = -1
+      end
       @total += @prices[sku.to_sym]
     end
     @total
   end
 
 end
-
-
-

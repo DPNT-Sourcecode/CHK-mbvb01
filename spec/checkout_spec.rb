@@ -17,4 +17,8 @@ describe Checkout do
   it 'returns the expected value for lowercase entry' do
     expect(@checkout.checkout('a')).to eq (50)
   end
+
+  it 'returns -1 if the provided sku doesnt exist' do
+    expect(@checkout.checkout('-')).to eq (-1)
+  end
 end
