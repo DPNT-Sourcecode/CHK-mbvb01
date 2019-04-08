@@ -14,5 +14,7 @@ describe Sum do
     expect{ @sum.sum(-1,1) }.to raise_error('Parameter is negative')
   end
 
-  it
+  it 'raises an error if either parameter is greater than 100' do
+    expect{ @sum.sum(101,1) }.to raise_error('Parameter is outside the accepted range')
+  end
 end
