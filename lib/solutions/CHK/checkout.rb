@@ -13,12 +13,12 @@ end
     skus_array = skus.split('')
     @total = 0
     skus_array.each do |sku|
-      p @prices[sku]
-      @total += @prices[sku]
+      @total += @prices[sku.to_sym]
     end
     @total
   end
 
 end
+
 
 
