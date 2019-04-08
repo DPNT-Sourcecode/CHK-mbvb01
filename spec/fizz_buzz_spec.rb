@@ -36,6 +36,12 @@ describe 'fizz buzz' do
   end
 end
 
+describe 'deluxe' do
+  it 'returns deluxe if a number is greater than 10 and contains all the same digets' do
+    expect(@fizzBuzz.fizz_buzz(2222)).to eq 'deluxe'
+  end
+end
+
 it 'returns the provided number as a string if not divisible by 3/5/15' do
   expect(@fizzBuzz.fizz_buzz(1)).to eq '1'
 end
@@ -46,4 +52,5 @@ it 'raises an error if the provided number is outside the range 1-9999' do
 end
 
 end
+
 
