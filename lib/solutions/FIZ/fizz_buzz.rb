@@ -5,6 +5,7 @@ class FizzBuzz
     raise 'Input is outside the permited range' if number < 1 || number > 9999
     return 'fizz buzz deluxe' if fizz_buzz_deluxe?(number)
     return 'fizz buzz' if fizz_buzz?(number)
+    return 'fizz deluxe' if fizz_deluxe?(number)
     return 'fizz' if fizz?(number)
     return 'buzz' if buzz?(number)
     return 'deluxe' if deluxe?(number)
@@ -39,6 +40,7 @@ class FizzBuzz
     return true if fizz?(number) && deluxe?(number)
   end
 end
+
 
 
 
