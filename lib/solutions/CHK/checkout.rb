@@ -11,7 +11,7 @@ def initialize
   }
 end
   def checkout(skus)
-    skus_array = skus.upcase.split('')
+    skus_array = skus.split('')
     @total = 0
     skus_array.each do |sku|
       if !@prices.has_key? sku.to_sym

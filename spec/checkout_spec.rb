@@ -14,11 +14,11 @@ describe Checkout do
     expect(@checkout.checkout('')).to eq (0)
   end
 
-  it 'returns the expected value for lowercase entry' do
-    expect(@checkout.checkout('a')).to eq (50)
-  end
-
   it 'returns -1 if the provided sku doesnt exist' do
     expect(@checkout.checkout('-')).to eq (-1)
+  end
+
+  it 'returns 130 if passed AAA' do
+    expect(@checkout.checkout('AAA')).to eq (130)
   end
 end
