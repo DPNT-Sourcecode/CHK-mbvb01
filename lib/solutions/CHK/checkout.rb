@@ -21,10 +21,12 @@ end
       @sku_total[sku] += 1
       @total += @prices[sku.to_sym]
     end
-    if @sku_total['A'] == 3
-      @total -= 20
+    if @sku_total['A'] >= 3
+      x = @sku_total['A'] - (@sku_total['A'] % 3)
+      y = x/3
+      @total -= (y*20)
     end
-    if @sku_total['B'] == 2
+    if @sku_total['B'] >= 2
       @total -= 15
     end
     @total
