@@ -24,6 +24,7 @@ end
 
 it 'raises an error if the provided number is outside the range 1-9999' do
   expect{ @fizzBuzz.fizz_buzz(0) }.to raise_error 'Input is outside the permited range'
+  expect{ @fizzBuzz.fizz_buzz(10000) }.to raise_error 'Input is outside the permited range'
 end
 
 end
