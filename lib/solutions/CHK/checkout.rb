@@ -41,8 +41,8 @@ end
     if @sku_total['E'] >= 2 && @sku_total['B'] >= 1
       x = @sku_total['E'] - (@sku_total['E'] % 2)
       y = x/2
-      p z = @sku_total['B'] / y
-      @total -= (z*15)
+      z = @sku_total['B'] / y
+      @total -= (z*30)
     end
     @total
   end
