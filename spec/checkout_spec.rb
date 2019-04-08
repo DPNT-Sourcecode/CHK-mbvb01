@@ -13,4 +13,8 @@ describe Checkout do
   it 'returns 0 when passed a blank string' do
     expect(@checkout.checkout('')).to eq (0)
   end
+
+  it 'returns the expected value for lowercase entry' do
+    expect(@checkout.checkout('a')).to eq (50)
+  end
 end
