@@ -6,7 +6,8 @@ def initialize
     A: 50,
     B: 30,
     C: 20,
-    D: 15
+    D: 15,
+    nil => 0
   }
 end
   def checkout(skus)

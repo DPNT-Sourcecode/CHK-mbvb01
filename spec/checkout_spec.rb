@@ -9,4 +9,8 @@ describe Checkout do
   it 'returns the value of the passed skus' do
     expect(@checkout.checkout('AAB')).to eq (130)  
   end
+
+  it 'returns 0 when passed a blank string' do
+    expect(@checkout.checkout('')).to eq (0)
+  end
 end
