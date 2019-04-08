@@ -27,7 +27,9 @@ end
       @total -= (y*20)
     end
     if @sku_total['B'] >= 2
-      @total -= 15
+      x = @sku_total['B'] - (@sku_total['B'] % 2)
+      y = x/2
+      @total -= (y*15)
     end
     @total
   end

@@ -29,4 +29,16 @@ describe Checkout do
   it 'returns 260 when passed AAAAAA' do
     expect(@checkout.checkout('AAAAAA')).to eq (260)
   end
+
+  it 'returns 45 when pass BB' do
+    expect(@checkout.checkout('BB')).to eq (45)
+  end
+
+  it 'returns 45 when pass BB' do
+    expect(@checkout.checkout('BBB')).to eq (75)
+  end
+
+  it 'returns 45 when pass BB' do
+    expect(@checkout.checkout('BBBB')).to eq (70)
+  end
 end
