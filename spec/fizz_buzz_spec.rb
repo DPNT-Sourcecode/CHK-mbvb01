@@ -6,8 +6,14 @@ before :each do
   @fizzBuzz = FizzBuzz.new
 end
 
-it 'returns fizz if a number is divisible by 3' do
-  expect(@fizzBuzz.fizz_buzz(3)).to eq 'fizz'
+describe 'fizz' do
+  it 'returns fizz if a number is divisible by 3' do
+    expect(@fizzBuzz.fizz_buzz(3)).to eq 'fizz'
+  end
+
+  it 'returns fizz if a number has a 3 in it' do
+    expect(@fizzBuzz.fizz_buzz(34)).to eq 'fizz'
+  end
 end
 
 it 'returns buzz if a number is divisible by 5' do
