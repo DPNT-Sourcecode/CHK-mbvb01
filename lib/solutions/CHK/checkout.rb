@@ -13,7 +13,7 @@ end
   def checkout(skus)
     skus_array = skus.split('')
     @total = 0
-    @sku_total = {0}
+    @sku_total = Hash.new(0)
     skus_array.each do |sku|
       if !@prices.has_key? sku.to_sym
         return @total = -1
@@ -31,4 +31,5 @@ end
   end
 
 end
+
 
