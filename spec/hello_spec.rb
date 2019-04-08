@@ -9,4 +9,8 @@ describe Hello do
     expect(@hello.hello('World')).to eq 'Hello, World'
   end
 
+  it 'returns a hello message containing the supplied name' do
+    expect(@hello.hello('James')).to eq 'Hello, James'
+  end
+
 end
