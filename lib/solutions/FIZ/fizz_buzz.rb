@@ -1,7 +1,7 @@
 # noinspection RubyUnusedLocalVariable
 class FizzBuzz
 
-  @response = nil
+  @response = ''
   def fizz_buzz(number)
     raise 'Input is outside the permited range' if number < 1 || number > 9999
     return 'fizz buzz deluxe' if fizz_buzz_deluxe?(number)
@@ -20,7 +20,7 @@ class FizzBuzz
   end
 
   def buzz?(number)
-    return true if (number % 5 == 0) || number.to_s.split('').include?('5')
+     return true if (number % 5 == 0) || number.to_s.split('').include?('5')
     return false
   end
 
@@ -32,9 +32,9 @@ class FizzBuzz
   def deluxe?(number)
     if number > 10 && number.to_s.split('').uniq.length == 1
       if number % 2 == 0
-        @response = 'deluxe'
+        @response + 'deluxe'
       else 
-        @response = 'fake deluxe'
+        @response + 'fake deluxe'
       end
       return true
     else false
@@ -55,5 +55,6 @@ class FizzBuzz
     return true if buzz?(number) && deluxe?(number)
   end
 end
+
 
 
