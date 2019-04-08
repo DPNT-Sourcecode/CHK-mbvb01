@@ -29,4 +29,9 @@ class FizzBuzz
     return true if number > 10 && number.to_s.split('').uniq.length == 1
   end
 
+  def fizz_buzz_deluxe?(number)
+    return true if fizz_buzz?(number) && deluxe?(number)
+    return false
+  end
 end
+
