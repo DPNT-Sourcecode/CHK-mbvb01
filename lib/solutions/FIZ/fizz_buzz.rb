@@ -34,7 +34,12 @@ class FizzBuzz
     return true if fizz_buzz?(number) && deluxe?(number)
     return false
   end
+
+  def fizz_deluxe?(number)
+    return true if fizz?(number) && deluxe?(number)
+  end
 end
+
 
 
 

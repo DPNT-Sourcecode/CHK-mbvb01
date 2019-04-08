@@ -48,6 +48,12 @@ describe 'fizz buzz deluxe' do
   end
 end
 
+describe 'fizz deluxe' do
+  it 'returns fizz deluxe if a number is fizz and deluxe' do
+    expect(@fizzBuzz.fizz_buzz(33)).to eq 'fizz deluxe'
+  end
+end
+
 it 'returns the provided number as a string if not divisible by 3/5/15' do
   expect(@fizzBuzz.fizz_buzz(1)).to eq '1'
 end
@@ -58,3 +64,4 @@ it 'raises an error if the provided number is outside the range 1-9999' do
 end
 
 end
+
