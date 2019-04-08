@@ -33,5 +33,16 @@ class FizzBuzz
     return true if fizz_buzz?(number) && deluxe?(number)
     return false
   end
+
+  def test()
+    x = 1
+    while x > 10000 do
+      if fizz_buzz_deluxe?(number)
+        puts x
+      end
+      x += 1
+    end
+  end
 end
+
 
