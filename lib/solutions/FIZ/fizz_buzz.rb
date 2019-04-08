@@ -3,6 +3,7 @@ class FizzBuzz
 
   def fizz_buzz(number)
     raise 'Input is outside the permited range' if number < 1 || number > 9999
+    return 'fizz buzz deluxe' if fizz_buzz_deluxe?(number)
     return 'fizz buzz' if fizz_buzz?(number)
     return 'fizz' if fizz?(number)
     return 'buzz' if buzz?(number)
@@ -33,17 +34,8 @@ class FizzBuzz
     return true if fizz_buzz?(number) && deluxe?(number)
     return false
   end
-
-  def test
-    x = 1
-    until x > 10000 do
-      if fizz_buzz_deluxe?(x)
-        puts x
-      end
-      x += 1
-    end
-  end
 end
+
 
 
 
