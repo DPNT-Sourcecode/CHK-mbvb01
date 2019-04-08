@@ -32,7 +32,7 @@ describe 'fizz buzz' do
   end
 
   it 'returns fizz buzz if a number contains a 3 and a 5' do
-    expect(@fizzBuzz.fizz_buzz(351)).to eq 'fizz buzz'
+    expect(@fizzBuzz.fizz_buzz(358)).to eq 'fizz buzz'
   end
 end
 
@@ -74,5 +74,6 @@ it 'raises an error if the provided number is outside the range 1-9999' do
 end
 
 end
+
 
 
