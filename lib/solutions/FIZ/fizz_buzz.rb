@@ -46,10 +46,3 @@ class FizzBuzz
     return true if buzz?(number) && deluxe?(number)
   end
 end
-
-
-
-
-
-
-
