@@ -7,6 +7,8 @@ class FizzBuzz
 
   def fizz_buzz(number)
     raise 'Input is outside the permited range' if number < 1 || number > 9999
+    evaluate(number)
+    return @response
     return 'fizz buzz deluxe' if fizz_buzz_deluxe?(number)
     return 'fizz buzz' if fizz_buzz?(number)
     return 'fizz deluxe' if fizz_deluxe?(number)
@@ -17,17 +19,25 @@ class FizzBuzz
     return number.to_s
   end
 
-  def fizz?(number)
-    return true if (number % 3 == 0) || number.to_s.split('').include?('3')
-    return false
+  def evaluate(number)
+    fizz(number)
+    buzz(number)
+    deluxe(number)
+    if @response == ''
+      @response = number.to_s
+    end
+    @response
   end
 
-  def buzz?(number)
+  def fizz(number)
+    if (number % 3 == 0) || number.to_s.split('').include?('3')
+      @response << 'fizz'
+    end
+  end
+
+  def buzz(number)
     if (number % 5 == 0) || number.to_s.split('').include?('5')
       @response << 'buzz'
-      return true
-    else 
-    return false
     end
   end
 
@@ -62,6 +72,7 @@ class FizzBuzz
     return true if buzz?(number) && deluxe?(number)
   end
 end
+
 
 
 
