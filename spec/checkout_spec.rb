@@ -45,4 +45,8 @@ describe Checkout do
   it 'returns 80 when passed EE' do
     expect(@checkout.checkout('EE')).to eq (80)
   end
+
+  it 'returns 80 when passed EEB' do
+    expect(@checkout.checkout('EEB')).to eq (80)
+  end
 end
