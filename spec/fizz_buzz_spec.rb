@@ -16,8 +16,14 @@ describe 'fizz' do
   end
 end
 
-it 'returns buzz if a number is divisible by 5' do
-  expect(@fizzBuzz.fizz_buzz(5)).to eq 'buzz'
+describe 'buzz' do
+  it 'returns buzz if a number is divisible by 5' do
+    expect(@fizzBuzz.fizz_buzz(5)).to eq 'buzz'
+  end
+
+  it 'returns buzz if a number has a 5 in it' do
+    expect(@fizzBuzz.fizz_buzz(52)).to eq 'buzz'
+  end
 end
 
 it 'returns fizz buzz if a number is divisible by 3 and 5' do
