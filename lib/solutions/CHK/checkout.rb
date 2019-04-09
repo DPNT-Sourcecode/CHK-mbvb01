@@ -32,9 +32,7 @@ end
     if @sku_total['A'] >= 3
       if @sku_total['A'] >= 5
         x = @sku_total['A'] - (@sku_total['A'] % 5)
-        p x
         y = x/5
-        p y
         @total -= (y*50)
         @aremainder = y
       end
@@ -44,19 +42,20 @@ end
       p @aremainder
       @total -= (y*20)
     end
-    if @sku_total['B'] >= 2
-      x = @sku_total['B'] - (@sku_total['B'] % 2)
-      y = x/2
-      @total -= (y*15)
-    end
     if @sku_total['E'] >= 2 && @sku_total['B'] >= 1
       x = @sku_total['E'] - (@sku_total['E'] % 2)
       y = x/2
       z = @sku_total['B'] / y
       @total -= (z*30)
     end
+    if @sku_total['B'] >= 2
+      x = @sku_total['B'] - (@sku_total['B'] % 2)
+      y = x/2
+      @total -= (y*15)
+    end
     @total
   end
 
 end
+
 
