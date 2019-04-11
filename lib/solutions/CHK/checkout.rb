@@ -102,7 +102,8 @@ class Checkout
 
   def buy_and_get_free(letter)
     @buy_and_get_free_deals = @deals.select {|key,value| key.to_s.include?letter.to_s}
-    keys = @buy_and_get_free_deals.keys
+    p @buy_and_get_free_deals
+    p keys = @buy_and_get_free_deals.keys
     while @sku_total[letter] >= @volume_deals[keys[0]][:quantity] && @sku_total[@volume_deals[keys[0]][:free]] >= 1 do
       @total += @volume_deals[keys[@deal_num]][:discount]
       @sku_total[letter] -= @volume_deals[keys[@deal_num]][:quantity]
@@ -110,6 +111,7 @@ class Checkout
     end
   end
 end
+
 
 
 
