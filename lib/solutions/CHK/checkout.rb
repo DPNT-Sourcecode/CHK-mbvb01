@@ -33,7 +33,7 @@ class Checkout
     @get_free = ['E','N','R']
   end
   def checkout(skus)
-    skus_array = skus.split('').sort_by! {|key| @prices[key.to_sym]}.reverse!
+    skus_array = skus.split('').sort_by! {|key| return @total = -1 unless @prices.key? key.to_sym; @prices[key.to_sym] }.reverse!
     @total = 0
     @sku_total = Hash.new(0)
     skus_array.each { |sku| @sku_total[sku] += 1 }
@@ -59,8 +59,6 @@ class Checkout
     @get_free.each {|sku| buy_and_get_free(sku)}  
     @volume.each {|sku| discount(sku)}
     @sku_total.each do |sku, value|
-      return @total = -1 if !@prices.key? sku.to_sym
-
       @total += value * @prices[sku.to_sym]
     end
     @total
@@ -89,6 +87,7 @@ class Checkout
     end
   end
 end
+
 
 
 
