@@ -51,12 +51,12 @@ end
       remove = 3
       while remove > 0 do
         @group_total.each do |key, value| 
-          case value - remove
-          when >= 0
+          case x = value - remove
+          when x >= 0
             @group_total[key] -= remove
             @sku_total[key] -= remove
             @remove = 0
-          when < 0
+          when x < 0
             @group_total[key] -= (remove - value)
             @sku_total[key] -= (remove - value)
             @remove -= value
@@ -153,4 +153,5 @@ end
   end
 
 end
+
 
