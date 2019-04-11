@@ -38,9 +38,7 @@ def initialize
 end
   def checkout(skus)
     skus_array = skus.split('')
-    p skus_array
-    skus_array.sort_by! {|key| @prices[key.to_sym]}
-    p skus_array
+    skus_array.sort_by! {|key| @prices[key.to_sym]}.reverse!
     @total = 0
     @sku_total = Hash.new(0)
     skus_array.each do |sku|
@@ -48,11 +46,7 @@ end
     end
     @group_total = @sku_total.select {|key,value| [:S,:T,:X,:Y,:Z].include?(key.to_sym)}
     while @group_total.values.inject(0){|sum,x| sum + x } >= 3  do
-      p 'Array Sum: ' + (@group_total.values.inject(0){|sum,x| sum + x }).to_s
-      p 'Array values: ' + @group_total.values.to_s
-      p keys = @group_total.keys
       @total += 45
-      p 'Current Total: ' + @total.to_s
       remove = 3
       @group_total.each do |key, value| 
         if remove > 0
@@ -61,12 +55,10 @@ end
             @group_total[key] -= remove
             @sku_total[key] -= remove
             remove = 0
-            p 'Group Key' + @group_total[key].to_s
           when value - remove < 0
             @group_total[key] = 0
             @sku_total[key] = 0
             remove -= value
-            p 'Current remove: '+ remove.to_s
           end
         end
       end 
@@ -149,18 +141,13 @@ end
       @sku_total['Q'] -= 3
     end
     
-    p 'Pre Final Total' + @total.to_s
     @sku_total.each do |sku, value|
       if !@prices.has_key? sku.to_sym
         return @total = -1
       end
-      p sku
-      p value
-      p @prices[sku.to_sym]
       @total += value * @prices[sku.to_sym]
     end
-    p 'Final Total' + @total.to_s
     @total
   end
-
 end
+
