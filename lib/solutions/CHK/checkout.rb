@@ -8,6 +8,7 @@ def initialize
     C: 20,
     D: 15,
     E: 40,
+    F: 10,
     nil => 0
   }
 
@@ -15,7 +16,8 @@ def initialize
     AAAAAA: {quantity: 5, discount: 200},
     AAA: {quantity: 3, discount: 130},
     BB: {quantity: 2, discount: 45},
-    EE: {quantity: 2, discount: 80}
+    EE: {quantity: 2, discount: 80},
+    FFF: {quantity: 3, discount: 20}
   }
 end
   def checkout(skus)
@@ -46,6 +48,11 @@ end
       @sku_total['B'] -= 2
      end
 
+     while @sku_total['F'] >= @deals[:FFF][:quantity] do
+      @total += @deals[:FFF][:discount]
+      @sku_total['F'] -= 3
+     end
+
     @sku_total.each do |sku, value|
       if !@prices.has_key? sku.to_sym
         return @total = -1
@@ -56,6 +63,3 @@ end
   end
 
 end
-
-
-
