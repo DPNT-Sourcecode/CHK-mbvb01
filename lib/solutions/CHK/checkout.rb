@@ -61,7 +61,7 @@ class Checkout
             remove -= value
           end
         end
-      end 
+      end
     end
     while @sku_total['A'] >= @deals[:AAAAAA][:quantity] do
       @total += @deals[:AAAAAA][:discount]
@@ -70,7 +70,7 @@ class Checkout
     while @sku_total['A'] >= @deals[:AAA][:quantity] do
       @total += @deals[:AAA][:discount]
       @sku_total['A'] -= 3
-    end 
+    end
     while @sku_total['E'] >= @deals[:EE][:quantity] && @sku_total['B'] >= 1
       @total += @deals[:EE][:discount]
       @sku_total['E'] -= 2
@@ -127,12 +127,13 @@ class Checkout
       @sku_total['Q'] -= 3
     end
     @sku_total.each do |sku, value|
-      return @total = -1 if !@prices.key? sku.to_sym
-   
+      return @total = -1 unless @prices.key? sku.to_sym
+
       @total += value * @prices[sku.to_sym]
     end
-      @total
+    @total
   end
 end
+
 
 
