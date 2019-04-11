@@ -58,9 +58,7 @@ class Checkout
     end
     @get_free.each {|sku| buy_and_get_free(sku)}  
     @volume.each {|sku| discount(sku)}
-    @sku_total.each do |sku, value|
-      @total += value * @prices[sku.to_sym]
-    end
+    @sku_total.each { |sku, value| @total += value * @prices[sku.to_sym] }
     @total
   end
 
@@ -87,6 +85,7 @@ class Checkout
     end
   end
 end
+
 
 
 
