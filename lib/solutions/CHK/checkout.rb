@@ -49,20 +49,19 @@ end
       p keys = @group_total.keys
       @total += 45
       remove = 3
-      while remove > 0 do
-        @group_total.each do |key, value| 
-          case x = value - remove
-          when x >= 0
-            @group_total[key] -= remove
-            @sku_total[key] -= remove
-            @remove = 0
-          when x < 0
-            @group_total[key] -= (remove - value)
-            @sku_total[key] -= (remove - value)
-            @remove -= value
-          end
-        end 
-      end
+      @group_total.each do |key, value| 
+        case x = value - remove
+        when x >= 0
+          @group_total[key] -= remove
+          @sku_total[key] -= remove
+          @remove = 0
+          return
+        when x < 0
+          @group_total[key] -= (remove - value)
+          @sku_total[key] -= (remove - value)
+          @remove -= value
+        end
+      end 
     end
     while @sku_total['A'] >= @deals[:AAAAAA][:quantity] do
      @total += @deals[:AAAAAA][:discount]
@@ -153,5 +152,6 @@ end
   end
 
 end
+
 
 
