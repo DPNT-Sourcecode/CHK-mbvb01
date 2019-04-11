@@ -64,20 +64,15 @@ class Checkout
       end
     end
     while @sku_total['A'] >= 3 do
-      volume_discount('A')
+      volume_discount('E')
     end
-    # while @sku_total['A'] >= @deals[:AAA][:quantity] do
-    #   @total += @deals[:AAA][:discount]
-    #   @sku_total['A'] -= 3
-    # end
     while @sku_total['E'] >= @deals[:EE][:quantity] && @sku_total['B'] >= 1
       @total += @deals[:EE][:discount]
       @sku_total['E'] -= 2
       @sku_total['B'] -= 1
     end
     while @sku_total['B'] >= @deals[:BB][:quantity] do
-      @total += @deals[:BB][:discount]
-      @sku_total['B'] -= 2
+      volume_discount('B')
     end
     while @sku_total['F'] >= @deals[:FFF][:quantity] do
       @total += @deals[:FFF][:discount]
@@ -98,12 +93,7 @@ class Checkout
       @sku_total['U'] -= 4
     end
     while @sku_total['H'] >= @deals[:HHHHHHHHHH][:quantity] do
-      @total += @deals[:HHHHHHHHHH][:discount]
-      @sku_total['H'] -= 10
-    end
-    while @sku_total['H'] >= @deals[:HHHHH][:quantity] do
-      @total += @deals[:HHHHH][:discount]
-      @sku_total['H'] -= 5
+      volume_discount('H')
     end
     while @sku_total['V'] >= @deals[:VVV][:quantity] do
       @total += @deals[:VVV][:discount]
@@ -118,8 +108,7 @@ class Checkout
       @sku_total['K'] -= 2
     end
     while @sku_total['P'] >= @deals[:PPPPP][:quantity] do
-      @total += @deals[:PPPPP][:discount]
-      @sku_total['P'] -= 5
+      volume_discount('P')
     end
     while @sku_total['Q'] >= @deals[:QQQ][:quantity] do
       @total += @deals[:QQQ][:discount]
@@ -137,7 +126,6 @@ class Checkout
     @volume_deals = @deals.select {|key,value| key.to_s.include?letter.to_s}
     @deal_num = 0
     keys = @volume_deals.keys
-    p @volume_deals
     while @deal_num < @volume_deals.length
       while @sku_total[letter] >= @volume_deals[keys[@deal_num]][:quantity] do
         @total += @volume_deals[keys[@deal_num]][:discount]
@@ -147,6 +135,7 @@ class Checkout
     end
   end
 end
+
 
 
 
