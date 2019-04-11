@@ -143,8 +143,3 @@ class Checkout
       @sku_total['A'] -= 5
     end
 end
-
-
-
-
-
