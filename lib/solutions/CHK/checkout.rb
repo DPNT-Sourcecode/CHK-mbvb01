@@ -45,14 +45,15 @@ end
       @sku_total['B'] -= 2
      end
 
-    @sku_total.each do |sku|
+    @sku_total.each do |sku, value|
       if !@prices.has_key? sku.to_sym
         return @total = -1
       end
-      @total += @prices[sku.to_sym]
+      @total += value * @prices[sku.to_sym]
     end
     @total
   end
 
 end
+
 
