@@ -63,14 +63,13 @@ class Checkout
         end
       end
     end
-    while @sku_total['A'] >= @deals[:AAAAAA][:quantity] do
-      @total += @deals[:AAAAAA][:discount]
-      @sku_total['A'] -= 5
+    while @sku_total['A'] >= 3 do
+      volume_discount('A')
     end
-    while @sku_total['A'] >= @deals[:AAA][:quantity] do
-      @total += @deals[:AAA][:discount]
-      @sku_total['A'] -= 3
-    end
+    # while @sku_total['A'] >= @deals[:AAA][:quantity] do
+    #   @total += @deals[:AAA][:discount]
+    #   @sku_total['A'] -= 3
+    # end
     while @sku_total['E'] >= @deals[:EE][:quantity] && @sku_total['B'] >= 1
       @total += @deals[:EE][:discount]
       @sku_total['E'] -= 2
@@ -135,7 +134,7 @@ class Checkout
   end
 
   def volume_discount(letter)
-    @volume_deals = @deals.select {|key,value| key.to_s.includes?letter.to_s}
+    @volume_deals = @deals.select {|key,value| key.to_s.include?letter.to_s}
     @deal_num = 0
     while @deal_num < @volume_deals.length
       while @sku_total[letter] >= @volume_deals[@deal_num][:quantity] do
@@ -146,6 +145,7 @@ class Checkout
     end
   end
 end
+
 
 
 
