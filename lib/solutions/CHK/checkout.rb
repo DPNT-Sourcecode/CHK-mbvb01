@@ -5,16 +5,18 @@ def initialize
   @prices = {
     I: 35,
     J: 60,
-    K: 80,
+    K: 70,
+    L: 90,
+    X: 17,
+    Z: 21,
     nil => 0
   }
-  [:L,:X].each {|key| @prices[key] = 90}
   [:A,:P,:R,:V,:Z].each {|key| @prices[key] = 50}
   [:E,:N,:U].each {|key| @prices[key] = 40}
-  [:B,:Q,:S].each {|key| @prices[key] = 30}
-  [:C,:G,:T,:W].each {|key| @prices[key] = 20}
+  [:B,:Q].each {|key| @prices[key] = 30}
+  [:C,:G,:S,:T,:W,:Y].each {|key| @prices[key] = 20}
   [:D,:M].each {|key| @prices[key] = 15}
-  [:F,:H,:O,:Y].each {|key| @prices[key] = 10}
+  [:F,:H,:O].each {|key| @prices[key] = 10}
 
   @deals = {
     AAAAAA: {quantity: 5, discount: 200},
@@ -24,7 +26,7 @@ def initialize
     FFF: {quantity: 3, discount: 20},
     HHHHH: {quantity: 5, discount: 45},
     HHHHHHHHHH: {quantity: 10, discount: 80},
-    KK: {quantity: 2, discount: 150},
+    KK: {quantity: 2, discount: 120},
     NNN: {quantity: 3, discount: 120},
     PPPPP: {quantity: 5, discount: 200},
     QQQ: {quantity: 3, discount: 80},
