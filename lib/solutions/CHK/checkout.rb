@@ -67,6 +67,12 @@ end
       @sku_total['F'] -= 3
      end
 
+     while @sku_total['N'] >= @deals[:NNN][:quantity] && @sku_total['M'] >= 1
+      @total += @deals[:NNN][:discount]
+      @sku_total['N'] -= 3
+      @sku_total['M'] -= 1
+    end
+
     @sku_total.each do |sku, value|
       if !@prices.has_key? sku.to_sym
         return @total = -1
@@ -77,6 +83,7 @@ end
   end
 
 end
+
 
 
 
