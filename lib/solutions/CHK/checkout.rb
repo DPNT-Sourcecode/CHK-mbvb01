@@ -60,8 +60,8 @@ end
             remove = 0
             p 'Group Key' + @group_total[key].to_s
           when value - remove < 0
-            @group_total[key] -= (remove - value)
-            @sku_total[key] -= (remove - value)
+            @group_total[key] = 0
+            @sku_total[key] = 0
             remove -= value
             p 'Current remove: '+ remove.to_s
           end
@@ -161,5 +161,6 @@ end
   end
 
 end
+
 
 
