@@ -12,7 +12,7 @@ def initialize
   }
 
   @deals = {
-    '5A': {quantity: 5, discount: 200},
+    AAAAAA: {quantity: 5, discount: 200},
     '3A': {quantity: 3, discount: 130},
     '2B': {quantity: 2, discount: 45},
     '2E': {quantity: 2, discount: 50}
@@ -26,8 +26,9 @@ end
       @sku_total[sku] += 1
     end
 
-    while @sku_total['A'] >= @deals['5A']['quantity'] do
-     @total += @deals['5A']['discount']
+    while @sku_total['A'] >= @deals['AAAAAA']['quantity'] do
+      p @deals['AAAAAA']['quantity']
+     @total += @deals['AAAAAA']['discount']
      @sku_total['A'] -= 5
     end
 
@@ -56,4 +57,5 @@ end
   end
 
 end
+
 
