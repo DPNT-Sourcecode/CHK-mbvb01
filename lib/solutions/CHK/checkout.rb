@@ -13,9 +13,9 @@ def initialize
 
   @deals = {
     AAAAAA: {quantity: 5, discount: 200},
-    '3A': {quantity: 3, discount: 130},
-    '2B': {quantity: 2, discount: 45},
-    '2E': {quantity: 2, discount: 50}
+    AAA: {quantity: 3, discount: 130},
+    BB: {quantity: 2, discount: 45},
+    EE: {quantity: 2, discount: 50}
   }
 end
   def checkout(skus)
@@ -25,28 +25,27 @@ end
     skus_array.each do |sku|
       @sku_total[sku] += 1
     end
-    p @deals[:AAAAAA][:quantity]
     while @sku_total['A'] >= @deals[:AAAAAA][:quantity] do
      @total += @deals[:AAAAAA][:discount]
      @sku_total['A'] -= 5
     end
 
-    while @sku_total['A'] >= @deals['3A']['quantity'] do
-      @total += @deals['3A']['discount']
+    while @sku_total['A'] >= @deals[:AAA][:quantity] do
+      @total += @deals[:AAA][:discount]
       @sku_total['A'] -= 3
      end
     
-    while @sku_total['E'] >= @deals['2E']['quantity'] && @sku_total['B'] >= 1
-      @total += @deals['2E']['discount']
+    while @sku_total['E'] >= @deals[:EE][:quantity] && @sku_total['B'] >= 1
+      @total += @deals[:EE][:discount]
       @sku_total['E'] -= 2
     end
 
-    while @sku_total['B'] >= @deals['2B']['quantity'] do
-      @total += @deals['2B']['discount']
+    while @sku_total['B'] >= @deals[:BB][:quantity] do
+      @total += @deals[:BB][:discount]
       @sku_total['B'] -= 2
      end
 
-    skus_total.each do |sku|
+    @sku_total.each do |sku|
       if !@prices.has_key? sku.to_sym
         return @total = -1
       end
@@ -56,3 +55,4 @@ end
   end
 
 end
+
