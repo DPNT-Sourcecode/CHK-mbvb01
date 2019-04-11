@@ -11,7 +11,7 @@ def initialize
     Z: 21,
     nil => 0
   }
-  [:A,:P,:R,:V,:Z].each {|key| @prices[key] = 50}
+  [:A,:P,:R,:V].each {|key| @prices[key] = 50}
   [:E,:N,:U].each {|key| @prices[key] = 40}
   [:B,:Q].each {|key| @prices[key] = 30}
   [:C,:G,:S,:T,:W,:Y].each {|key| @prices[key] = 20}
@@ -161,6 +161,7 @@ end
   end
 
 end
+
 
 
 
