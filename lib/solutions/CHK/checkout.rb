@@ -49,16 +49,17 @@ end
       p @group_total.values
       p keys = @group_total.keys
       @total += 45
+      p @total
       remove = 3
       @group_total.each do |key, value| 
-        case x = value - remove
-        when x >= 0
+        case
+        when value - remove >= 0
           @group_total[key] -= remove
           @sku_total[key] -= remove
           remove = 0
           p @group_total[key]
           return
-        when x < 0
+        when value - remove < 0
           @group_total[key] -= (remove - value)
           @sku_total[key] -= (remove - value)
           remove -= value
@@ -155,6 +156,7 @@ end
   end
 
 end
+
 
 
 
