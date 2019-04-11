@@ -136,15 +136,18 @@ class Checkout
   def volume_discount(letter)
     @volume_deals = @deals.select {|key,value| key.to_s.include?letter.to_s}
     @deal_num = 0
+    keys = @volume_deals.keys
+    p @volume_deals
     while @deal_num < @volume_deals.length
-      while @sku_total[letter] >= @volume_deals[@deal_num][:quantity] do
-        @total += @volume_deals[@deal_num][:discount]
-        @sku_total[letter] -= @volume_deals[@deal_num][:quantity]
+      while @sku_total[letter] >= @volume_deals[keys[@deal_num]][:quantity] do
+        @total += @volume_deals[keys[@deal_num]][:discount]
+        @sku_total[letter] -= @volume_deals[keys[@deal_num]][:quantity]
       end
       @deal_num += 1
     end
   end
 end
+
 
 
 
