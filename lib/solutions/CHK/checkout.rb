@@ -25,8 +25,7 @@ end
     skus_array.each do |sku|
       @sku_total[sku] += 1
     end
-p @sku_total
-p @deals
+p @deals['5A']
     while @sku_total['A'] >= @deals['AAAAAA'][:quantity] do
      @total += @deals['AAAAAA'][:discount]
      @sku_total['A'] -= 5
@@ -57,6 +56,7 @@ p @deals
   end
 
 end
+
 
 
 
