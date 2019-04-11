@@ -62,16 +62,39 @@ end
       @sku_total['B'] -= 2
      end
 
-     while @sku_total['F'] >= @deals[:FFF][:quantity] do
+    while @sku_total['F'] >= @deals[:FFF][:quantity] do
       @total += @deals[:FFF][:discount]
       @sku_total['F'] -= 3
-     end
+    end
 
-     while @sku_total['N'] >= @deals[:NNN][:quantity] && @sku_total['M'] >= 1
+    while @sku_total['N'] >= @deals[:NNN][:quantity] && @sku_total['M'] >= 1
       @total += @deals[:NNN][:discount]
       @sku_total['N'] -= 3
       @sku_total['M'] -= 1
     end
+
+    while @sku_total['R'] >= @deals[:RRR][:quantity] && @sku_total['Q'] >= 1
+      @total += @deals[:RRR][:discount]
+      @sku_total['R'] -= 3
+      @sku_total['Q'] -= 1
+    end
+
+    while @sku_total['U'] >= @deals[:UUUU][:quantity] do
+      @total += @deals[:UUUU][:discount]
+      @sku_total['U'] -= 4
+    end
+
+    while @sku_total['H'] >= @deals[:HHHHHHHHHH][:quantity] do
+      @total += @deals[:HHHHHHHHHH][:discount]
+      @sku_total['H'] -= 10
+     end
+ 
+     while @sku_total['H'] >= @deals[:HHHHH][:quantity] do
+       @total += @deals[:HHHHH][:discount]
+       @sku_total['H'] -= 5
+      end
+
+    
 
     @sku_total.each do |sku, value|
       if !@prices.has_key? sku.to_sym
@@ -83,8 +106,3 @@ end
   end
 
 end
-
-
-
-
-
