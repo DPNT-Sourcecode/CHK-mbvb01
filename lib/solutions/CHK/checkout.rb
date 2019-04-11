@@ -46,15 +46,15 @@ end
     @group_total = @sku_total.select {|key,value| [:S,:T,:X,:Y,:Z].include?(key.to_sym)}
     while @group_total.length >= 3 do
       p @group_total
-      p @group_total.keys
+      p keys = @group_total.keys
       @total += 45
-      @group_total[0] -= 1
-      @group_total[1] -= 1
-      @group_total[2] -= 1
-      @sku_total[@group_total[0]] -= 1
-      @sku_total[@group_total[1]] -= 1
-      @sku_total[@group_total[2]] -= 1
-      @group_total.delete_if {|key, value| value > 1}
+      @group_total[keys[0]] -= 1
+      @group_total[keys[1]] -= 1
+      @group_total[keys[2]] -= 1
+      @sku_total[keys[0]] -= 1
+      @sku_total[keys[1]] -= 1
+      @sku_total[keys[2]] -= 1
+      @group_total.delete_if {|key, value| value < 1}
     end
     while @sku_total['A'] >= @deals[:AAAAAA][:quantity] do
      @total += @deals[:AAAAAA][:discount]
@@ -145,6 +145,7 @@ end
   end
 
 end
+
 
 
 
