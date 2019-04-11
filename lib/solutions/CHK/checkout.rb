@@ -18,16 +18,16 @@ class Checkout
       BB: {quantity: 2, discount: 45},
       EE: {quantity: 2, discount: 80, free: 'B'},
       FFF: {quantity: 3, discount: 20},
-      HHHHH: {quantity: 5, discount: 45},
       HHHHHHHHHH: {quantity: 10, discount: 80},
+      HHHHH: {quantity: 5, discount: 45},
       KK: {quantity: 2, discount: 120},
       NNN: {quantity: 3, discount: 120, free: 'M'},
       PPPPP: {quantity: 5, discount: 200},
       QQQ: {quantity: 3, discount: 80},
       RRR: {quantity: 3, discount: 150, free: 'Q'},
       UUUU: {quantity: 4, discount: 120},
-      VV: {quantity: 2, discount: 90},
-      VVV: {quantity: 3, discount: 130}
+      VVV: {quantity: 3, discount: 130},
+      VV: {quantity: 2, discount: 90}
     }
     @volume = ['A','B','F','H','V','K','P','Q','U']
     @get_free = ['E','N','R']
@@ -85,10 +85,3 @@ class Checkout
     end
   end
 end
-
-
-
-
-
-
-
