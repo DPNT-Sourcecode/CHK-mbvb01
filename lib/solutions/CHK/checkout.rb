@@ -36,9 +36,6 @@ class Checkout
       VVV: {quantity: 3, discount: 130}
     }
 
-    @volume_deals = { AAAAAA: {quantity: 5, discount: 200},
-    AAA: {quantity: 3, discount: 130}
-  }
   end
   def checkout(skus)
     skus_array = skus.split('').sort_by! {|key| @prices[key.to_sym]}.reverse!
@@ -138,8 +135,11 @@ class Checkout
   end
 
   def volume_discount(letter, count)
-    while @sku_total[letter] >= @deals[letter][:quantity] do
+    @volume_deals = @deals.select {|key,value| key==letter.to_sym}
+    while @sku_total[letter] >= @volume_deals[letter][:quantity] do
       @total += @deals[:AAAAAA][:discount]
       @sku_total['A'] -= 5
     end
+  end
 end
+
