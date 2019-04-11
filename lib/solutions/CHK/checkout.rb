@@ -59,7 +59,6 @@ end
             @sku_total[key] -= remove
             remove = 0
             p 'Group Key' + @group_total[key].to_s
-            return
           when value - remove < 0
             @group_total[key] -= (remove - value)
             @sku_total[key] -= (remove - value)
@@ -154,16 +153,8 @@ end
       end
       @total += value * @prices[sku.to_sym]
     end
-    p 'Final Total' + @total
+    p 'Final Total' + @total.to_s
     @total
   end
 
 end
-
-
-
-
-
-
-
-
