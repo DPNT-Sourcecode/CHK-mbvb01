@@ -93,19 +93,10 @@ class Checkout
       @total += @deals[:VVV][:discount]
       @sku_total['V'] -= 3
     end
-    while @sku_total['V'] >= @deals[:VV][:quantity] do
-      @total += @deals[:VV][:discount]
-      @sku_total['V'] -= 2
-    end
-    while @sku_total['K'] >= @deals[:KK][:quantity] do
-      @total += @deals[:KK][:discount]
-      @sku_total['K'] -= 2
-    end
+      volume_discount('V')
+      volume_discount('K')
       volume_discount('P')
-    while @sku_total['Q'] >= @deals[:QQQ][:quantity] do
-      @total += @deals[:QQQ][:discount]
-      @sku_total['Q'] -= 3
-    end
+      volume_discount('Q')
     @sku_total.each do |sku, value|
       return @total = -1 unless @prices.key? sku.to_sym
 
@@ -127,4 +118,5 @@ class Checkout
     end
   end
 end
+
 
