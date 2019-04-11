@@ -45,11 +45,11 @@ end
     end
     @group_total = @sku_total.select {|key,value| [:S,:T,:X,:Y,:Z].include?(key.to_sym)}
     while @group_total.values.inject(0){|sum,x| sum + x } >= 3  do
-      p @group_total.values.inject(0){|sum,x| sum + x }
-      p @group_total.values
+      p 'Array Sum: ' + (@group_total.values.inject(0){|sum,x| sum + x }).to_s
+      p 'Array values: ' + @group_total.values.to_s
       p keys = @group_total.keys
       @total += 45
-      p @total
+      p 'Current Total: ' + @total.to_s
       remove = 3
       @group_total.each do |key, value| 
         case
@@ -57,13 +57,13 @@ end
           @group_total[key] -= remove
           @sku_total[key] -= remove
           remove = 0
-          p @group_total[key]
+          p 'Group Key' + @group_total[key].to_s
           return
         when value - remove < 0
           @group_total[key] -= (remove - value)
           @sku_total[key] -= (remove - value)
           remove -= value
-          p remove
+          p 'Current remove: '+ remove.to_s
         end
       end 
     end
@@ -156,6 +156,7 @@ end
   end
 
 end
+
 
 
 
