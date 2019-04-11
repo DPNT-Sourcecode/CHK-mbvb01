@@ -2,13 +2,7 @@ class Checkout
 
   def initialize
     @prices = {
-      I: 35,
-      J: 60,
-      K: 70,
-      L: 90,
-      X: 17,
-      Z: 21,
-      nil => 0
+      I:35,J:60,K:70,L:90,X:17,Z:21,nil=>0
     }
 
     [:A,:P,:R,:V].each {|key| @prices[key] = 50}
@@ -95,6 +89,7 @@ class Checkout
     end
   end
 end
+
 
 
 
