@@ -35,7 +35,6 @@ class Checkout
       VV: {quantity: 2, discount: 90},
       VVV: {quantity: 3, discount: 130}
     }
-
     @volume = ['A','B','F','H','V','K','P','Q','U']
     @get_free = ['E','N','R']
   end
@@ -43,9 +42,7 @@ class Checkout
     skus_array = skus.split('').sort_by! {|key| @prices[key.to_sym]}.reverse!
     @total = 0
     @sku_total = Hash.new(0)
-    skus_array.each do |sku|
-      @sku_total[sku] += 1
-    end
+    skus_array.each { |sku| @sku_total[sku] += 1 }
     @group_total = @sku_total.select {|key,value| [:S,:T,:X,:Y,:Z].include?(key.to_sym)}
     while @group_total.values.inject(0){|sum,x| sum + x } >= 3  do
       @total += 45
@@ -65,7 +62,7 @@ class Checkout
         end
       end
     end
-    @volume.each {|sku| buy_and_get_free(sku)}  
+    @get_free.each {|sku| buy_and_get_free(sku)}  
     @volume.each {|sku| discount(sku)}
     @sku_total.each do |sku, value|
       return @total = -1 unless @prices.key? sku.to_sym
@@ -91,19 +88,13 @@ class Checkout
   def buy_and_get_free(letter)
     @buy_and_get_free_deals = @deals.select {|key,value| key.to_s.include?letter.to_s}
     keys = @buy_and_get_free_deals.keys
-    p @buy_and_get_free_deals
-    p 'hello'
-    p @buy_and_get_free_deals[keys[0]][:quantity]
-    p @sku_total[@buy_and_get_free_deals[keys[0]][:free]]
     while @sku_total[letter] >= @buy_and_get_free_deals[keys[0]][:quantity] && @sku_total[@buy_and_get_free_deals[keys[0]][:free]] >= 1 do
       @total += @buy_and_get_free_deals[keys[0]][:discount]
       @sku_total[letter] -= @buy_and_get_free_deals[keys[0]][:quantity]
-      p 'hello again'
-      p 'free before' + @sku_total[@buy_and_get_free_deals[keys[0]][:free]].to_s
       @sku_total[@buy_and_get_free_deals[keys[0]][:free]] -= 1
-      p 'free after' + @sku_total[@buy_and_get_free_deals[keys[0]][:free]].to_s
     end
   end
 end
+
 
 
