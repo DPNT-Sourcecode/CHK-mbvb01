@@ -151,6 +151,9 @@ end
       if !@prices.has_key? sku.to_sym
         return @total = -1
       end
+      p sku
+      p value
+      p @prices[sku.to_sym]
       @total += value * @prices[sku.to_sym]
     end
     p 'Final Total' + @total.to_s
@@ -158,4 +161,5 @@ end
   end
 
 end
+
 
