@@ -22,15 +22,15 @@ class Checkout
       AAAAAA: {quantity: 5, discount: 200},
       AAA: {quantity: 3, discount: 130},
       BB: {quantity: 2, discount: 45},
-      EE: {quantity: 2, discount: 80},
+      EE: {quantity: 2, discount: 80, free: 'B'},
       FFF: {quantity: 3, discount: 20},
       HHHHH: {quantity: 5, discount: 45},
       HHHHHHHHHH: {quantity: 10, discount: 80},
       KK: {quantity: 2, discount: 120},
-      NNN: {quantity: 3, discount: 120},
+      NNN: {quantity: 3, discount: 120, free: 'M'},
       PPPPP: {quantity: 5, discount: 200},
       QQQ: {quantity: 3, discount: 80},
-      RRR: {quantity: 3, discount: 150},
+      RRR: {quantity: 3, discount: 150, free: 'Q'},
       UUUU: {quantity: 4, discount: 120},
       VV: {quantity: 2, discount: 90},
       VVV: {quantity: 3, discount: 130}
@@ -76,11 +76,7 @@ class Checkout
       @sku_total['N'] -= 3
       @sku_total['M'] -= 1
     end
-    while @sku_total['R'] >= @deals[:RRR][:quantity] && @sku_total['Q'] >= 1
-      @total += @deals[:RRR][:discount]
-      @sku_total['R'] -= 3
-      @sku_total['Q'] -= 1
-    end
+    buy_and_get_free('R')
       
     @volume.each {|sku| discount(sku)}
     @sku_total.each do |sku, value|
@@ -103,7 +99,18 @@ class Checkout
       @deal_num += 1
     end
   end
+
+  def buy_and_get_free(letter)
+    @buy_and_get_free_deals = @deals.select {|key,value| key.to_s.include?letter.to_s}
+    keys = @buy_and_get_free_deals.keys
+    while @sku_total[letter] >= @volume_deals[keys[0]][:quantity] && @sku_total[@volume_deals[keys[0]][:free]] >= 1 do
+      @total += @volume_deals[keys[@deal_num]][:discount]
+      @sku_total[letter] -= @volume_deals[keys[@deal_num]][:quantity]
+      @sku_total[@volume_deals[keys[@deal_num]][:free]] -= 1
+    end
+  end
 end
+
 
 
 
