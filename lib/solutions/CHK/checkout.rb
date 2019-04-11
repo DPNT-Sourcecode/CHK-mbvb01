@@ -43,6 +43,8 @@ end
     skus_array.each do |sku|
       @sku_total[sku] += 1
     end
+    @group_total = @sku_total.select {|key,value| [:S,:T,:X,:Y,:Z].include?(key.to_sym)}
+    p @group_total
     while @sku_total['A'] >= @deals[:AAAAAA][:quantity] do
      @total += @deals[:AAAAAA][:discount]
      @sku_total['A'] -= 5
@@ -132,3 +134,4 @@ end
   end
 
 end
+
