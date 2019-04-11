@@ -12,7 +12,7 @@ def initialize
   }
 
   @deals = {
-    '5A': {quantity: 5, discount: 200},
+    AAAAAA: {quantity: 5, discount: 200},
     '3A': {quantity: 3, discount: 130},
     '2B': {quantity: 2, discount: 45},
     '2E': {quantity: 2, discount: 50}
@@ -25,9 +25,9 @@ end
     skus_array.each do |sku|
       @sku_total[sku] += 1
     end
-p @deals['5A']
-    while @sku_total['A'] >= @deals['AAAAAA'][:quantity] do
-     @total += @deals['AAAAAA'][:discount]
+    p @deals[:AAAAAA][:quantity]
+    while @sku_total['A'] >= @deals[:AAAAAA][:quantity] do
+     @total += @deals[:AAAAAA][:discount]
      @sku_total['A'] -= 5
     end
 
@@ -56,7 +56,3 @@ p @deals['5A']
   end
 
 end
-
-
-
-
