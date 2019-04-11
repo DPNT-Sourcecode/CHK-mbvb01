@@ -45,6 +45,7 @@ end
     end
     @group_total = @sku_total.select {|key,value| [:S,:T,:X,:Y,:Z].include?(key.to_sym)}
     while @group_total.values.inject(0){|sum,x| sum + x } >= 3  do
+      @group_total = @sku_total.select {|key,value| [:S,:T,:X,:Y,:Z].include?(key.to_sym)}
       p @group_total.values
       p keys = @group_total.keys
       @total += 45
@@ -54,12 +55,13 @@ end
         when x >= 0
           @group_total[key] -= remove
           @sku_total[key] -= remove
-          @remove = 0
+          remove = 0
           return
         when x < 0
           @group_total[key] -= (remove - value)
           @sku_total[key] -= (remove - value)
-          @remove -= value
+          remove -= value
+          remove
         end
       end 
     end
@@ -152,6 +154,7 @@ end
   end
 
 end
+
 
 
 
