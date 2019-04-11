@@ -97,4 +97,16 @@ describe Checkout do
   it'returns 65 when passed SSSZ' do
     expect(@checkout.checkout('SSSZ')).to eq (65)
   end
+
+  it'returns 80 when passed HHHHHHHHHH' do
+    expect(@checkout.checkout('HHHHHHHHHH')).to eq (80)
+  end
+
+  it'returns 90 when passed HHHHHHHHHHH' do
+    expect(@checkout.checkout('HHHHHHHHHHH')).to eq (90)
+  end
+
+  it'returns 100 when passed HHHHHHHHHHHH' do
+    expect(@checkout.checkout('HHHHHHHHHHHH')).to eq (100)
+  end
 end
