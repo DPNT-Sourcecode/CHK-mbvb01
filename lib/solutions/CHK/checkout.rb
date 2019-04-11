@@ -59,7 +59,7 @@ class Checkout
     @get_free.each {|sku| buy_and_get_free(sku)}  
     @volume.each {|sku| discount(sku)}
     @sku_total.each do |sku, value|
-      return @total = -1 unless @prices.key? sku.to_sym
+      return @total = -1 if !@prices.key? sku.to_sym
 
       @total += value * @prices[sku.to_sym]
     end
@@ -89,6 +89,7 @@ class Checkout
     end
   end
 end
+
 
 
 
