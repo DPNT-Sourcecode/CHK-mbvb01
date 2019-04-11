@@ -21,7 +21,17 @@ def initialize
     AAA: {quantity: 3, discount: 130},
     BB: {quantity: 2, discount: 45},
     EE: {quantity: 2, discount: 80},
-    FFF: {quantity: 3, discount: 20}
+    FFF: {quantity: 3, discount: 20},
+    HHHHH: {quantity: 5, discount: 45},
+    HHHHHHHHHH: {quantity: 10, discount: 80},
+    KK: {quantity: 2, discount: 150},
+    NNN: {quantity: 3, discount: 120},
+    PPPPP: {quantity: 5, discount: 200},
+    QQQ: {quantity: 3, discount: 80},
+    RRR: {quantity: 3, discount: 150},
+    UUUU: {quantity: 4, discount: 120},
+    VV: {quantity: 2, discount: 90},
+    VVV: {quantity: 3, discount: 130}
   }
 end
   def checkout(skus)
@@ -67,6 +77,7 @@ end
   end
 
 end
+
 
 
 
