@@ -52,18 +52,20 @@ end
       p 'Current Total: ' + @total.to_s
       remove = 3
       @group_total.each do |key, value| 
-        case
-        when value - remove >= 0
-          @group_total[key] -= remove
-          @sku_total[key] -= remove
-          remove = 0
-          p 'Group Key' + @group_total[key].to_s
-          return
-        when value - remove < 0
-          @group_total[key] -= (remove - value)
-          @sku_total[key] -= (remove - value)
-          remove -= value
-          p 'Current remove: '+ remove.to_s
+        if remove > 0
+          case
+          when value - remove >= 0
+            @group_total[key] -= remove
+            @sku_total[key] -= remove
+            remove = 0
+            p 'Group Key' + @group_total[key].to_s
+            return
+          when value - remove < 0
+            @group_total[key] -= (remove - value)
+            @sku_total[key] -= (remove - value)
+            remove -= value
+            p 'Current remove: '+ remove.to_s
+          end
         end
       end 
     end
@@ -152,10 +154,12 @@ end
       end
       @total += value * @prices[sku.to_sym]
     end
+    p 'Final Total' + @total
     @total
   end
 
 end
+
 
 
 
