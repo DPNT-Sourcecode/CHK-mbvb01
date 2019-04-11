@@ -146,7 +146,7 @@ end
       @sku_total['Q'] -= 3
     end
     
-
+    p 'Pre Final Total' + @total.to_s
     @sku_total.each do |sku, value|
       if !@prices.has_key? sku.to_sym
         return @total = -1
@@ -158,3 +158,4 @@ end
   end
 
 end
+
