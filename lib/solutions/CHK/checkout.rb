@@ -88,9 +88,7 @@ class Checkout
       @total += @deals[:UUUU][:discount]
       @sku_total['U'] -= 4
     end
-    while @sku_total['H'] >= @deals[:HHHHHHHHHH][:quantity] do
       volume_discount('H')
-    end
     while @sku_total['V'] >= @deals[:VVV][:quantity] do
       @total += @deals[:VVV][:discount]
       @sku_total['V'] -= 3
@@ -103,9 +101,7 @@ class Checkout
       @total += @deals[:KK][:discount]
       @sku_total['K'] -= 2
     end
-    while @sku_total['P'] >= @deals[:PPPPP][:quantity] do
       volume_discount('P')
-    end
     while @sku_total['Q'] >= @deals[:QQQ][:quantity] do
       @total += @deals[:QQQ][:discount]
       @sku_total['Q'] -= 3
@@ -131,3 +127,4 @@ class Checkout
     end
   end
 end
+
