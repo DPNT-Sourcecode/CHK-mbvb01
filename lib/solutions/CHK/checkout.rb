@@ -38,10 +38,13 @@ def initialize
 end
   def checkout(skus)
     skus_array = skus.split('')
+    p skus_array
+    skus_array.sort_by! {|key| @prices[key.to_sym]}
+    p skus_array
     @total = 0
     @sku_total = Hash.new(0)
     skus_array.each do |sku|
-      @sku_total[sku][count] += 1
+      @sku_total[sku] += 1
     end
     @group_total = @sku_total.select {|key,value| [:S,:T,:X,:Y,:Z].include?(key.to_sym)}
     while @group_total.values.inject(0){|sum,x| sum + x } >= 3  do
@@ -161,8 +164,3 @@ end
   end
 
 end
-
-
-
-
-
