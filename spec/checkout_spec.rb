@@ -85,4 +85,16 @@ describe Checkout do
   it'returns 45 when passed XYZ' do
     expect(@checkout.checkout('XYZ')).to eq (45)
   end
+
+  it'returns 21 when passed Z' do
+    expect(@checkout.checkout('Z')).to eq (21)
+  end
+
+  it'returns 45 when passed SSS' do
+    expect(@checkout.checkout('SSS')).to eq (45)
+  end
+
+  it'returns 65 when passed SSSZ' do
+    expect(@checkout.checkout('SSSZ')).to eq (65)
+  end
 end
