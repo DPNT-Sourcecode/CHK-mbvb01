@@ -37,7 +37,6 @@ class Checkout
     }
 
     @volume = ['A','B','H','V','K','P','Q']
-
   end
   def checkout(skus)
     skus_array = skus.split('').sort_by! {|key| @prices[key.to_sym]}.reverse!
@@ -91,11 +90,7 @@ class Checkout
       @sku_total['U'] -= 4
     end
       
-    while @sku_total['V'] >= @deals[:VVV][:quantity] do
-      @total += @deals[:VVV][:discount]
-      @sku_total['V'] -= 3
-    end
-    @volume.each {|sku| volume_discount(sku)}
+    @volume.each {|sku| discount(sku)}
     @sku_total.each do |sku, value|
       return @total = -1 unless @prices.key? sku.to_sym
 
@@ -104,7 +99,7 @@ class Checkout
     @total
   end
 
-  def volume_discount(letter)
+  def discount(letter)
     @volume_deals = @deals.select {|key,value| key.to_s.include?letter.to_s}
     @deal_num = 0
     keys = @volume_deals.keys
@@ -117,6 +112,7 @@ class Checkout
     end
   end
 end
+
 
 
 
