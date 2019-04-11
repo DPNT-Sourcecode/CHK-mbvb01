@@ -12,9 +12,10 @@ def initialize
   }
 
   @deals = {
-    A: {quantity: 3, discount: 20},
-    B: {quantity: 2, discount: 15},
-    E: {quantity: 2, discount: 15}
+    '5A': {quantity: 5, discount: 200},
+    '3A': {quantity: 3, discount: 130},
+    '2B': {quantity: 2, discount: 45},
+    '2E': {quantity: 2, discount: 50}
   }
 end
   def checkout(skus)
@@ -22,36 +23,37 @@ end
     @total = 0
     @sku_total = Hash.new(0)
     skus_array.each do |sku|
+      @sku_total[sku] += 1
+    end
+
+    while @sku_total['A'] >= @deals['5A']['quantity'] do
+     @total += @deals['5A']['discount']
+     @sku_total['A'] -= 5
+    end
+
+    while @sku_total['A'] >= @deals['3A']['quantity'] do
+      @total += @deals['3A']['discount']
+      @sku_total['A'] -= 3
+     end
+    
+    while @sku_total['E'] >= @deals['2E']['quantity'] && @sku_total['B'] >= 1
+      @total += @deals['2E']['discount']
+      @sku_total['E'] -= 2
+    end
+
+    while @sku_total['B'] >= @deals['2B']['quantity'] do
+      @total += @deals['2B']['discount']
+      @sku_total['B'] -= 2
+     end
+
+    skus_total.each do |sku|
       if !@prices.has_key? sku.to_sym
         return @total = -1
       end
-      @sku_total[sku] += 1
       @total += @prices[sku.to_sym]
-    end
-    @aremainder = @sku_total['A']
-    if @sku_total['A'] >= 3
-      if @sku_total['A'] >= 5
-        x = @sku_total['A'] - (@sku_total['A'] % 5)
-        y = x/5
-        @total -= (y*50)
-        @aremainder = y
-      end
-      x = @aremainder - (@aremainder % 3)
-      y = x/3
-      @total -= (y*20)
-    end
-    if @sku_total['E'] >= 2 && @sku_total['B'] >= 1
-      x = @sku_total['E'] - (@sku_total['E'] % 2)
-      y = x/2
-      z = @sku_total['B'] / y
-      @total -= (z*30)
-    end
-    if @sku_total['B'] >= 2
-      x = @sku_total['B'] - (@sku_total['B'] % 2)
-      y = x/2
-      @total -= (y*15)
     end
     @total
   end
 
 end
+
