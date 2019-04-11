@@ -94,7 +94,10 @@ class Checkout
     while @sku_total[letter] >= @buy_and_get_free_deals[keys[0]][:quantity] && @sku_total[@buy_and_get_free_deals[keys[0]][:free]] >= 1 do
       @total += @buy_and_get_free_deals[keys[0]][:discount]
       @sku_total[letter] -= @buy_and_get_free_deals[keys[0]][:quantity]
+      p 'free before' + @sku_total[@buy_and_get_free_deals[keys[0]][:free]].to_s
       @sku_total[@buy_and_get_free_deals[keys[0]][:free]] -= 1
+      p 'free after' + @sku_total[@buy_and_get_free_deals[keys[0]][:free]].to_s
     end
   end
 end
+
