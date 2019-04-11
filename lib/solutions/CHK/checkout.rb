@@ -91,13 +91,19 @@ class Checkout
   def buy_and_get_free(letter)
     @buy_and_get_free_deals = @deals.select {|key,value| key.to_s.include?letter.to_s}
     keys = @buy_and_get_free_deals.keys
+    p @buy_and_get_free_deals
+    p 'hello'
+    p @buy_and_get_free_deals[keys[0]][:quantity]
+    p @sku_total[@buy_and_get_free_deals[keys[0]][:free]]
     while @sku_total[letter] >= @buy_and_get_free_deals[keys[0]][:quantity] && @sku_total[@buy_and_get_free_deals[keys[0]][:free]] >= 1 do
       @total += @buy_and_get_free_deals[keys[0]][:discount]
       @sku_total[letter] -= @buy_and_get_free_deals[keys[0]][:quantity]
+      p 'hello again'
       p 'free before' + @sku_total[@buy_and_get_free_deals[keys[0]][:free]].to_s
       @sku_total[@buy_and_get_free_deals[keys[0]][:free]] -= 1
       p 'free after' + @sku_total[@buy_and_get_free_deals[keys[0]][:free]].to_s
     end
   end
 end
+
 
