@@ -3,29 +3,18 @@ class Checkout
 
 def initialize
   @prices = {
-    A: 50,
-    B: 30,
-    C: 20,
-    D: 15,
-    E: 40,
-    F: 10,
-    G: 20,
-    H: 10,
     I: 35,
     J: 60,
     K: 80,
-    L: 90,
-    M: 15,
-    N: 40,
-    O: 10,
-    P: 50,
-    Q: 30,
-
     nil => 0
   }
-  ['A','P','V'].each {|key| @prices[key] = 50}
+  ['L','X'].each {|key| @prices[key] = 90}
+  ['A','P','R','V','Z'].each {|key| @prices[key] = 50}
+  ['E','N','U'].each {|key| @prices[key] = 40}
   ['B','Q','S'].each {|key| @prices[key] = 30}
   ['C','G','T','W'].each {|key| @prices[key] = 20}
+  ['D','M'].each {|key| @prices[key] = 15}
+  ['F','H','O','Y'].each {|key| @prices[key] = 10}
 
   @deals = {
     AAAAAA: {quantity: 5, discount: 200},
@@ -67,7 +56,7 @@ end
       @total += @deals[:FFF][:discount]
       @sku_total['F'] -= 3
      end
-
+p @prices
     @sku_total.each do |sku, value|
       if !@prices.has_key? sku.to_sym
         return @total = -1
@@ -78,4 +67,5 @@ end
   end
 
 end
+
 
