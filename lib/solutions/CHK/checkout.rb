@@ -37,8 +37,7 @@ class Checkout
     }
   end
   def checkout(skus)
-    skus_array = skus.split('')
-    skus_array.sort_by! {|key| @prices[key.to_sym]}.reverse!
+    skus_array = skus.split('').sort_by! {|key| @prices[key.to_sym]}.reverse!
     @total = 0
     @sku_total = Hash.new(0)
     skus_array.each do |sku|
@@ -134,6 +133,7 @@ class Checkout
     @total
   end
 end
+
 
 
 
