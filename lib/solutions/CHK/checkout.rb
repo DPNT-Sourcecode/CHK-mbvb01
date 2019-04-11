@@ -8,13 +8,13 @@ def initialize
     K: 80,
     nil => 0
   }
-  ['L','X'].each {|key| @prices[key] = 90}
-  ['A','P','R','V','Z'].each {|key| @prices[key] = 50}
-  ['E','N','U'].each {|key| @prices[key] = 40}
-  ['B','Q','S'].each {|key| @prices[key] = 30}
-  ['C','G','T','W'].each {|key| @prices[key] = 20}
-  ['D','M'].each {|key| @prices[key] = 15}
-  ['F','H','O','Y'].each {|key| @prices[key] = 10}
+  [:L,:X].each {|key| @prices[key] = 90}
+  [:A,:P,:R,:V,:Z].each {|key| @prices[key] = 50}
+  [:E,:N,:U].each {|key| @prices[key] = 40}
+  [:B,:Q,:S].each {|key| @prices[key] = 30}
+  [:C,:G,:T,:W].each {|key| @prices[key] = 20}
+  [:D,:M].each {|key| @prices[key] = 15}
+  [:F,:H,:O,:Y].each {|key| @prices[key] = 10}
 
   @deals = {
     AAAAAA: {quantity: 5, discount: 200},
@@ -56,7 +56,7 @@ end
       @total += @deals[:FFF][:discount]
       @sku_total['F'] -= 3
      end
-p @prices
+
     @sku_total.each do |sku, value|
       if !@prices.has_key? sku.to_sym
         return @total = -1
@@ -67,5 +67,6 @@ p @prices
   end
 
 end
+
 
 
