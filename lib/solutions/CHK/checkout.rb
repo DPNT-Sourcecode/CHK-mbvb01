@@ -20,9 +20,12 @@ def initialize
     O: 10,
     P: 50,
     Q: 30,
-    
+
     nil => 0
   }
+  ['A','P','V'].each {|key| @prices[key] = 50}
+  ['B','Q','S'].each {|key| @prices[key] = 30}
+  ['C','G','T','W'].each {|key| @prices[key] = 20}
 
   @deals = {
     AAAAAA: {quantity: 5, discount: 200},
@@ -75,3 +78,4 @@ end
   end
 
 end
+
