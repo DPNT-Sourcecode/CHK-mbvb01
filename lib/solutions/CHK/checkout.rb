@@ -46,6 +46,7 @@ end
     @group_total = @sku_total.select {|key,value| [:S,:T,:X,:Y,:Z].include?(key.to_sym)}
     while @group_total.length >= 3 do
       p @group_total
+      p @group_total[1]
       @total += 45
       @group_total[0] -= 1
       @group_total[1] -= 1
@@ -144,4 +145,5 @@ end
   end
 
 end
+
 
