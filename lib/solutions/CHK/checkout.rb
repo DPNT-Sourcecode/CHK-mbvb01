@@ -36,7 +36,7 @@ class Checkout
       VVV: {quantity: 3, discount: 130}
     }
 
-    @volume = ['A','B','H','V','K','P','Q']
+    @volume = ['A','B','F','H','V','K','P','Q','U']
   end
   def checkout(skus)
     skus_array = skus.split('').sort_by! {|key| @prices[key.to_sym]}.reverse!
@@ -70,11 +70,7 @@ class Checkout
       @sku_total['E'] -= 2
       @sku_total['B'] -= 1
     end
-      
-    while @sku_total['F'] >= @deals[:FFF][:quantity] do
-      @total += @deals[:FFF][:discount]
-      @sku_total['F'] -= 3
-    end
+
     while @sku_total['N'] >= @deals[:NNN][:quantity] && @sku_total['M'] >= 1
       @total += @deals[:NNN][:discount]
       @sku_total['N'] -= 3
@@ -84,10 +80,6 @@ class Checkout
       @total += @deals[:RRR][:discount]
       @sku_total['R'] -= 3
       @sku_total['Q'] -= 1
-    end
-    while @sku_total['U'] >= @deals[:UUUU][:quantity] do
-      @total += @deals[:UUUU][:discount]
-      @sku_total['U'] -= 4
     end
       
     @volume.each {|sku| discount(sku)}
@@ -112,6 +104,7 @@ class Checkout
     end
   end
 end
+
 
 
 
