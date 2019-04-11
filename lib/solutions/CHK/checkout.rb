@@ -49,7 +49,7 @@ end
     while @sku_total['A'] >= @deals[:AAA][:quantity] do
       @total += @deals[:AAA][:discount]
       @sku_total['A'] -= 3
-     end
+    end
     
     while @sku_total['E'] >= @deals[:EE][:quantity] && @sku_total['B'] >= 1
       @total += @deals[:EE][:discount]
@@ -60,7 +60,7 @@ end
     while @sku_total['B'] >= @deals[:BB][:quantity] do
       @total += @deals[:BB][:discount]
       @sku_total['B'] -= 2
-     end
+    end
 
     while @sku_total['F'] >= @deals[:FFF][:quantity] do
       @total += @deals[:FFF][:discount]
@@ -87,13 +87,37 @@ end
     while @sku_total['H'] >= @deals[:HHHHHHHHHH][:quantity] do
       @total += @deals[:HHHHHHHHHH][:discount]
       @sku_total['H'] -= 10
-     end
+    end
  
-     while @sku_total['H'] >= @deals[:HHHHH][:quantity] do
-       @total += @deals[:HHHHH][:discount]
-       @sku_total['H'] -= 5
-      end
+    while @sku_total['H'] >= @deals[:HHHHH][:quantity] do
+      @total += @deals[:HHHHH][:discount]
+      @sku_total['H'] -= 5
+    end
 
+    while @sku_total['V'] >= @deals[:VVV][:quantity] do
+      @total += @deals[:VVV][:discount]
+      @sku_total['V'] -= 3
+    end
+  
+    while @sku_total['V'] >= @deals[:VV][:quantity] do
+      @total += @deals[:VV][:discount]
+      @sku_total['V'] -= 2
+    end
+
+    while @sku_total['K'] >= @deals[:KK][:quantity] do
+      @total += @deals[:KK][:discount]
+      @sku_total['K'] -= 2
+    end
+
+    while @sku_total['P'] >= @deals[:PPPPP][:quantity] do
+      @total += @deals[:PPPPP][:discount]
+      @sku_total['P'] -= 5
+    end
+
+    while @sku_total['Q'] >= @deals[:QQQ][:quantity] do
+      @total += @deals[:QQQ][:discount]
+      @sku_total['Q'] -= 3
+    end
     
 
     @sku_total.each do |sku, value|
@@ -106,3 +130,4 @@ end
   end
 
 end
+
