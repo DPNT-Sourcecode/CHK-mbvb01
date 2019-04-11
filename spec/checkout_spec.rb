@@ -51,7 +51,7 @@ describe Checkout do
   end
 
   it 'returns 110 when passed EEBB' do
-    expect(@checkout.checkout('EEBB')).to eq (65)
+    expect(@checkout.checkout('EEBB')).to eq (110)
   end
 
   it 'returns 200 when passed AAAAA' do

@@ -15,7 +15,7 @@ def initialize
     AAAAAA: {quantity: 5, discount: 200},
     AAA: {quantity: 3, discount: 130},
     BB: {quantity: 2, discount: 45},
-    EE: {quantity: 2, discount: 50}
+    EE: {quantity: 2, discount: 80}
   }
 end
   def checkout(skus)
@@ -38,6 +38,7 @@ end
     while @sku_total['E'] >= @deals[:EE][:quantity] && @sku_total['B'] >= 1
       @total += @deals[:EE][:discount]
       @sku_total['E'] -= 2
+      @sku_total['B'] -= 1
     end
 
     while @sku_total['B'] >= @deals[:BB][:quantity] do
@@ -55,5 +56,6 @@ end
   end
 
 end
+
 
 
